@@ -281,7 +281,7 @@ function init(host,opts){
       }catch(err){reject(err)}
     };
     img.onerror=function(){reject(new Error('oak'))};
-    img.src=opts.oak||'oak.jpg';
+    img.src=opts.oak||'assets/3d/oak.jpg';
   });
 }
 window.Office3D={init:init};

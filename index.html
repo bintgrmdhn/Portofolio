@@ -438,7 +438,7 @@ h1,h2,h3{margin:0;letter-spacing:-.035em;text-wrap:balance}
 
 /* bento */
 .bentoband{padding-block:clamp(72px,12vw,140px)}
-.bentoband h2{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:700;line-height:1;margin-bottom:34px}
+.bentoband h2{font-size:clamp(2rem,4.6vw,3.6rem);font-weight:700;line-height:1.05;margin-bottom:34px;letter-spacing:-.025em}
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .tile{background:var(--tile);border-radius:30px;padding:30px;min-width:0;position:relative;overflow:hidden;transition:transform .5s var(--spring)}
 .tile:hover{transform:translateY(-4px)}
@@ -612,8 +612,6 @@ button.chip.hide{opacity:0;pointer-events:none}
 html.cc,html.cc *{cursor:none}
 html.cc input,html.cc textarea,html.cc select{cursor:text}
 /* Tools: judul + deskripsi */
-.bentoband h2{margin-bottom:10px}
-.bentoband .tsub{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--gray);font-weight:500;letter-spacing:-.01em;margin:0 0 34px}
 /* hologram wajah di kotak Pengalaman */
 .big>div:first-child,.big .num{position:relative;z-index:2}
 .holo{position:absolute;right:-8%;bottom:-8%;height:84%;aspect-ratio:1;z-index:1;pointer-events:none;perspective:700px;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
@@ -885,8 +883,7 @@ section[id]{scroll-margin-top:84px}
   <section class="band dark bentoband" id="skill">
     <div class="in">
       <span class="eyebrow">Skill</span>
-      <h2>Tools</h2>
-      <p class="tsub">Software andalan yang digunakan.</p>
+      <h2>Software andalan yang digunakan.</h2>
       <div class="bento">
         <div class="tile big rvx"><div><span class="cap">Pengalaman</span><h3>Sebagai Graphic Designer</h3></div><div class="num"><span id="count" data-to="2">0</span><small>tahun</small></div><div class="orb"></div><div class="holo" id="holo" aria-hidden="true"><canvas id="holoc" width="540" height="540"></canvas></div></div>
         <div class="tile wide rvx"><span class="cap">Desain</span><h3>Dari logo sampai poster.</h3><div class="tags"><span>Branding</span><span>Poster</span><span>Media sosial</span><span>Tipografi</span><span>Layout</span></div></div>

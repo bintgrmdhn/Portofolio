@@ -611,6 +611,9 @@ button.chip.hide{opacity:0;pointer-events:none}
 .mcur.zoom b{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(255,255,255,.18)}
 html.cc,html.cc *{cursor:none}
 html.cc input,html.cc textarea,html.cc select{cursor:text}
+/* sembunyikan scrollbar halaman (scroll tetap jalan) */
+html{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
 section[id]{scroll-margin-top:84px}
 @media (prefers-reduced-motion:reduce){.nav .in{transition:opacity .2s}}
 @media (max-width:760px){.nav .in{height:48px;padding:0 6px 0 14px}main{padding-top:26px}}

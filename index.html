@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="id">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Portofolio Bintang Ramadhan</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32.png">
@@ -706,10 +710,10 @@ section[id]{scroll-margin-top:84px}
             <div class="pop-body"><em id="pop-e"></em><h3 id="pop-t"></h3><p id="pop-p"></p><ul id="pop-l"></ul><div class="pop-tags" id="pop-g"></div></div>
           </div>
         </div>
-        <button type="button" class="chip c1" data-k="branding"><i style="--c:#ff9f0a"></i>Branding</button>
-        <button type="button" class="chip c2" data-k="lua"><i style="--c:#5ac8fa"></i>Lua &amp; NUI</button>
-        <button type="button" class="chip c3" data-k="ui"><i style="--c:#bf5af2"></i>UI Design</button>
-        <button type="button" class="chip c4" data-k="js"><i style="--c:#30d158"></i>JavaScript</button>
+        <button type="button" class="chip c1" data-k="logo"><i style="--c:#ff9f0a"></i>Logo Desain</button>
+        <button type="button" class="chip c2" data-k="apparel"><i style="--c:#5ac8fa"></i>Apparel Desain</button>
+        <button type="button" class="chip c3" data-k="ilustrasi"><i style="--c:#bf5af2"></i>Ilustrasi</button>
+        <button type="button" class="chip c4" data-k="mockup"><i style="--c:#30d158"></i>Mockup</button>
                 <div class="device" id="device">
           <i class="sb sb1"></i><i class="sb sb2"></i><i class="sb sb3"></i><i class="sb sb4"></i>
           <div class="frame"><div class="scr">
@@ -974,14 +978,14 @@ section[id]{scroll-margin-top:84px}
 
   /* category popup */
   var K={
-    branding:{e:'Desain',t:'Branding',gl:'Aa',c:['#ff9f0a','#ff375f','#bf5af2'],p:'Dua tahun saya membangun identitas visual yang konsisten di semua kanal, dari logo sampai aset media sosial.',
-      l:['Logo dan identitas visual: tanda, susunan logo, dan aturan pemakaiannya.','Palet warna dan tipografi yang dipilih supaya merek mudah dikenali.','Brand kit: satu paket aset untuk tim dan klien.','Poster dan materi media sosial dengan tampilan yang seragam.'],g:['Logo','Identitas','Tipografi','Palet']},
-    lua:{e:'Game',t:'Lua & NUI',gl:'Lua',c:['#5ac8fa','#5e5ce6','#0a84ff'],p:'Saya menulis resource FiveM di ekosistem QBX, lengkap dengan antarmuka NUI buatan sendiri.',
-      l:['qbx_weaponenchant: enchant senjata jarak dekat dengan antarmuka NUI.','Street Guide: panduan command dan keybind bertema Need For Speed.','Integrasi dengan ox_lib, ox_inventory, dan oxmysql.','Skrip server dan klien dalam satu alur kerja.'],g:['Lua','NUI','QBX','ox_lib']},
-    ui:{e:'Desain',t:'UI Design',gl:'UI',c:['#bf5af2','#ff375f','#ffd60a'],p:'Saya merancang antarmuka dari sketsa sampai tampilan akhir yang siap dipakai.',
-      l:['Mockup aplikasi dengan layar, alur, dan komponen yang konsisten.','Antarmuka game dengan gaya khas tiap server.','Hierarki visual lewat warna, ukuran, dan jarak yang memandu mata.','Desain yang bisa langsung saya bangun sendiri jadi kode.'],g:['Mockup','NUI','Layout','Warna']},
-    js:{e:'Kode',t:'JavaScript',gl:'JS',c:['#ffd60a','#ff9f0a','#30d158'],p:'JavaScript saya pakai untuk membuat tampilan hidup, dari halaman web sampai antarmuka NUI.',
-      l:['Logika NUI yang menerima pesan dari Lua dan memperbarui tampilan.','Interaksi halaman seperti tab, popup, dan animasi saat scroll.','Halaman web ringan tanpa framework berat.','Terus belajar sambil kuliah Teknik Informatika.'],g:['JavaScript','HTML','CSS','DOM']}
+    logo:{e:'Desain',t:'Logo Desain',gl:'Lg',c:['#ff9f0a','#ff375f','#bf5af2'],p:'Logo yang sederhana, mudah dikenali, dan tetap jelas di ukuran kecil maupun besar.',
+      l:['Logo untuk brand dan komunitas, dari ide sampai file siap pakai.','Variasi logo: versi utama, ikon, dan versi warna untuk latar terang dan gelap.','Palet warna dan tipografi yang dipilih supaya merek mudah diingat.','File akhir yang rapi dan siap dipakai di media cetak maupun digital.'],g:['Logo','Brand','Tipografi','Palet']},
+    apparel:{e:'Desain',t:'Apparel Desain',gl:'Tee',c:['#5ac8fa','#5e5ce6','#0a84ff'],p:'Desain untuk pakaian, dari kaos dan jaket sampai seragam komunitas.',
+      l:['Desain kaos, jaket, dan hoodie dengan grafis yang menonjol saat dipakai.','Penempatan desain di depan, belakang, dan lengan yang disesuaikan dengan bentuk pakaian.','Pilihan warna yang disesuaikan dengan bahan dan teknik cetaknya.','File siap cetak untuk sablon, DTF, atau bordir.'],g:['Kaos','Jaket','Seragam','Siap cetak']},
+    ilustrasi:{e:'Desain',t:'Ilustrasi',gl:'Il',c:['#bf5af2','#ff375f','#ffd60a'],p:'Ilustrasi dengan karakter dan suasana yang kuat, dipakai untuk brand, poster, dan merchandise.',
+      l:['Karakter dan maskot dengan gaya yang konsisten.','Ilustrasi untuk poster, sampul, dan konten media sosial.','Elemen grafis yang bisa dipakai ulang di desain lain.','Komposisi, warna, dan cahaya yang disusun supaya cerita mudah terbaca.'],g:['Karakter','Poster','Digital','Komposisi']},
+    mockup:{e:'Desain',t:'Mockup',gl:'Mk',c:['#30d158','#0a84ff','#5e5ce6'],p:'Mockup untuk memperlihatkan desain di benda nyata sebelum diproduksi atau dibagikan.',
+      l:['Mockup logo dan brand di berbagai media, seperti kemasan, kartu, dan signage.','Mockup apparel untuk melihat desain di kaos, jaket, atau topi.','Mockup layar untuk antarmuka dan tampilan web atau game.','Tampilan yang rapi dan realistis untuk presentasi ke klien.'],g:['Brand','Apparel','Layar','Presentasi']}
   };
   var pop=$('#pop'),popCard=$('#pop-card'),lastChip=null,popTimer=null;
   function openPop(key,chip){

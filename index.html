@@ -614,10 +614,11 @@ html.cc input,html.cc textarea,html.cc select{cursor:text}
 /* Tools: judul + deskripsi */
 /* hologram wajah di kotak Pengalaman */
 .big>div:first-child,.big .num{position:relative;z-index:2}
-.holo{position:absolute;right:-8%;bottom:-8%;height:84%;aspect-ratio:1;z-index:1;pointer-events:none;perspective:700px;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
-.holo canvas{width:100%;height:100%;display:block;filter:drop-shadow(0 0 6px rgba(90,230,255,.55)) drop-shadow(0 0 22px rgba(90,160,255,.35));transform-style:preserve-3d;will-change:transform,opacity}
-@media (max-width:900px){.holo{height:80%;right:-12%}}
-@media (max-width:560px){.holo{height:64%;right:-14%;bottom:-6%;opacity:.8}}
+.hx{position:absolute;right:-3%;bottom:-24%;height:118%;aspect-ratio:1;z-index:1;pointer-events:none;perspective:700px;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
+.hx canvas.hx-cv,.hx .hx-fb{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 0 6px rgba(90,230,255,.5)) drop-shadow(0 0 20px rgba(90,160,255,.3))}
+.hx.on3d .hx-fb{display:none}
+@media (max-width:900px){.hx{height:100%;right:-8%;bottom:-16%}}
+@media (max-width:560px){.hx{height:78%;right:-16%;bottom:-8%;opacity:.85}}
 /* sembunyikan scrollbar halaman (scroll tetap jalan) */
 html{scrollbar-width:none;-ms-overflow-style:none}
 html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
@@ -885,7 +886,7 @@ section[id]{scroll-margin-top:84px}
       <span class="eyebrow">Skill</span>
       <h2>Software andalan yang digunakan.</h2>
       <div class="bento">
-        <div class="tile big rvx"><div><span class="cap">Pengalaman</span><h3>Sebagai Graphic Designer</h3></div><div class="num"><span id="count" data-to="2">0</span><small>tahun</small></div><div class="orb"></div><div class="holo" id="holo" aria-hidden="true"><canvas id="holoc" width="540" height="540"></canvas></div></div>
+        <div class="tile big rvx"><div><span class="cap">Pengalaman</span><h3>Sebagai Graphic Designer</h3></div><div class="num"><span id="count" data-to="2">0</span><small>tahun</small></div><div class="orb"></div><div class="hx" id="hx3d" aria-hidden="true"><img class="hx-fb" src="assets/profil/holo.webp" alt="" width="540" height="540"></div></div>
         <div class="tile wide rvx"><span class="cap">Desain</span><h3>Dari logo sampai poster.</h3><div class="tags"><span>Branding</span><span>Poster</span><span>Media sosial</span><span>Tipografi</span><span>Layout</span></div></div>
         <div class="tile rvx"><span class="cap">Kode</span><h3>Web</h3><div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div></div>
         <div class="tile rvx"><span class="cap">Game</span><h3>FiveM</h3><div class="tags"><span>Lua</span><span>NUI</span><span>QBX</span></div></div>
@@ -1175,7 +1176,7 @@ document.querySelectorAll('.fcar').forEach(function(car){
   function setMode(m){mode=m;card.classList.toggle('rd',m==='rd');modes.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.m===m))});sync()}
   function start(){
     if(started)return;started=true;
-    ls('js/three.min.js').then(function(){return ls('js/office3d.js')}).then(function(){return Office3D.init(host,{noAuto:reduce,oak:'assets/3d/oak.jpg'})}).then(function(a){
+    (window.THREE?Promise.resolve():ls('js/three.min.js')).then(function(){return ls('js/office3d.js')}).then(function(){return Office3D.init(host,{noAuto:reduce,oak:'assets/3d/oak.jpg'})}).then(function(a){
       api=a;load.style.opacity='0';a.onView(setChip);setChip(a.current());sync();
     }).catch(function(){load.textContent='Pratinjau 3D tidak tersedia di perangkat ini. Lihat mode Render.';setMode('rd')});
   }
@@ -1241,84 +1242,17 @@ document.querySelectorAll('.fcar').forEach(function(car){
 </script>
 <script>
 (function(){
-  var cvs=document.getElementById('holoc');if(!cvs)return;
-  var ctx=cvs.getContext('2d'),N=540,wrap=cvs.parentNode,tile=wrap.parentNode;
+  var host=document.getElementById('hx3d');if(!host)return;
+  var tile=host.parentNode,api=null,started=false,vis=false;
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var EY=[{x:192,y:266,w:50},{x:306,y:295,w:47}],ANG=Math.atan2(295-266,306-192);
-  var base=new Image(),ready=false;base.onload=function(){ready=true;kick()};base.src='assets/profil/holo.webp';
-  var mx=null,my=null,lastMove=0,gaze={x:0,y:0},tgt={x:0,y:0},idleT=0,blink=0,nextBlink=2500,tilt={x:0,y:0},tt={x:0,y:0};
-  var vis=false,raf=0,t0=performance.now();
-  function onMove(e){mx=e.clientX;my=e.clientY;lastMove=performance.now()}
-  window.addEventListener('pointermove',onMove,{passive:true});
-  window.addEventListener('pointerdown',onMove,{passive:true});
-  function almond(w,h,k){
-    var hh=h*k;ctx.beginPath();ctx.moveTo(-w/2,0);
-    ctx.bezierCurveTo(-w*.25,-hh*.95,w*.2,-hh*.95,w/2,0);
-    ctx.bezierCurveTo(w*.2,hh*.6,-w*.25,hh*.65,-w/2,0);ctx.closePath();
+  function ls(src){return new Promise(function(ok,bad){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=bad;document.head.appendChild(s)})}
+  function start(){
+    if(started)return;started=true;
+    (window.THREE?Promise.resolve():ls('js/three.min.js')).then(function(){return ls('js/holo3d.js')})
+      .then(function(){return Holo3D.init(host,{reduce:reduce})})
+      .then(function(a){api=a;host.classList.add('on3d');api.setActive(vis)})
+      .catch(function(){/* WebGL tidak tersedia: gambar statis tetap tampil */});
   }
-  function eye(e,gx,gy,k,time){
-    var w=e.w,h=w*.36,r=h*.66,mxr=w/2-r-2,myr=h*.5-r*.35;
-    ctx.save();ctx.translate(e.x,e.y);ctx.rotate(ANG);
-    almond(w,h,k);ctx.fillStyle='rgba(2,30,48,.78)';ctx.fill();
-    ctx.save();almond(w,h,k);ctx.clip();
-    var ix=gx*mxr,iy=gy*myr*(k>.5?1:0);
-    var g=ctx.createRadialGradient(ix,iy,1,ix,iy,r);g.addColorStop(0,'rgba(160,250,255,.95)');g.addColorStop(.55,'rgba(70,200,255,.75)');g.addColorStop(1,'rgba(40,120,255,.35)');
-    ctx.fillStyle=g;ctx.beginPath();ctx.arc(ix,iy,r,0,7);ctx.fill();
-    ctx.strokeStyle='rgba(210,255,255,.9)';ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(ix,iy,r,0,7);ctx.stroke();
-    ctx.strokeStyle='rgba(20,90,140,.8)';ctx.lineWidth=.8;
-    for(var i=0;i<10;i++){var a=i*Math.PI/5+time*.0006;ctx.beginPath();ctx.moveTo(ix+Math.cos(a)*r*.45,iy+Math.sin(a)*r*.45);ctx.lineTo(ix+Math.cos(a)*r*.95,iy+Math.sin(a)*r*.95);ctx.stroke()}
-    ctx.fillStyle='#021018';ctx.beginPath();ctx.arc(ix,iy,r*.42,0,7);ctx.fill();
-    ctx.fillStyle='rgba(255,255,255,.95)';ctx.beginPath();ctx.arc(ix-r*.28,iy-r*.3,r*.16,0,7);ctx.fill();
-    ctx.restore();
-    ctx.strokeStyle='rgba(200,252,255,.95)';ctx.lineWidth=1.8;almond(w,h,k);ctx.stroke();
-    ctx.restore();
-  }
-  function frame(now){
-    raf=0;if(!vis||!ready)return;
-    var dt=Math.min(.05,(now-(frame.l||now))/1000);frame.l=now;
-    var r=wrap.getBoundingClientRect(),sc=r.width/N;
-    // arah pandang
-    var active=mx!==null&&now-lastMove<4500;
-    if(active){
-      var best=null;
-      EY.forEach(function(e){
-        var cx=r.left+e.x*sc,cy=r.top+e.y*sc,dx=mx-cx,dy=my-cy,c=Math.cos(-ANG),s=Math.sin(-ANG);
-        var lx=dx*c-dy*s,ly=dx*s+dy*c,d=Math.sqrt(lx*lx+ly*ly)||1,m=Math.min(1,d/(240*Math.max(.6,sc*2)));
-        e._g={x:lx/d*m,y:ly/d*m};
-      });
-      tgt.x=(EY[0]._g.x+EY[1]._g.x)/2;tgt.y=(EY[0]._g.y+EY[1]._g.y)/2;
-      var tr=tile.getBoundingClientRect();
-      tt.x=Math.max(-1,Math.min(1,(mx-(tr.left+tr.width/2))/(window.innerWidth*.5)));
-      tt.y=Math.max(-1,Math.min(1,(my-(tr.top+tr.height/2))/(window.innerHeight*.5)));
-    }else{
-      idleT-=dt*1000;
-      if(idleT<=0){idleT=900+Math.random()*1800;tgt.x=(Math.random()*2-1)*.8;tgt.y=(Math.random()*2-1)*.5}
-      tt.x=Math.sin(now*.0004)*.35;tt.y=Math.cos(now*.0005)*.2;
-    }
-    var f=reduce?1:1-Math.pow(.0015,dt);
-    gaze.x+=(tgt.x-gaze.x)*f;gaze.y+=(tgt.y-gaze.y)*f;
-    tilt.x+=(tt.x-tilt.x)*f*.5;tilt.y+=(tt.y-tilt.y)*f*.5;
-    // kedip
-    var k=1;
-    if(!reduce){
-      nextBlink-=dt*1000;
-      if(nextBlink<=0){blink=1;nextBlink=2600+Math.random()*3600}
-      if(blink>0){blink-=dt/.2;var b=Math.max(0,blink);k=Math.max(.06,Math.abs(b*2-1))}
-    }
-    ctx.clearRect(0,0,N,N);ctx.globalCompositeOperation='source-over';ctx.drawImage(base,0,0,N,N);
-    eye(EY[0],gaze.x,gaze.y,k,now);eye(EY[1],gaze.x,gaze.y,k,now);
-    if(!reduce){
-      var sw=((now-t0)/3600)%1.3-.15,y=sw*N;
-      ctx.globalCompositeOperation='source-atop';
-      var gr=ctx.createLinearGradient(0,y-46,0,y+46);gr.addColorStop(0,'rgba(180,255,255,0)');gr.addColorStop(.5,'rgba(220,255,255,.7)');gr.addColorStop(1,'rgba(180,255,255,0)');
-      ctx.fillStyle=gr;ctx.fillRect(0,y-46,N,92);ctx.globalCompositeOperation='source-over';
-      cvs.style.opacity=(Math.random()<.04?.78:.96).toFixed(2);
-    }
-    cvs.style.transform='rotateY('+(tilt.x*9).toFixed(2)+'deg) rotateX('+(-tilt.y*6).toFixed(2)+'deg)';
-    raf=requestAnimationFrame(frame);
-  }
-  function kick(){if(!raf&&vis&&ready)raf=requestAnimationFrame(frame)}
-  if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;if(vis)kick()})},{threshold:.05}).observe(tile);else{vis=true;kick()}
-  document.addEventListener('visibilitychange',function(){if(!document.hidden)kick()});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;if(vis)start();if(api)api.setActive(vis)})},{threshold:.05}).observe(tile);else{vis=true;start()}
 })();
 </script>

@@ -597,6 +597,20 @@ button.chip.hide{opacity:0;pointer-events:none}
 .nav ul a:hover{opacity:1;background:rgba(255,255,255,.12);color:#fff}
 .nav svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .nav .mini{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;position:relative;z-index:1}
+/* kursor kustom (hanya perangkat dengan mouse) */
+.mcur{position:fixed;left:0;top:0;z-index:99999;pointer-events:none;mix-blend-mode:difference;opacity:0;transition:opacity .25s}
+.mcur.on{opacity:1}
+.mcur i,.mcur b{position:absolute;left:0;top:0;border-radius:50%;pointer-events:none;will-change:transform}
+.mcur i{width:8px;height:8px;margin:-4px 0 0 -4px;background:#fff;transition:width .25s var(--spring),height .25s var(--spring),margin .25s var(--spring),opacity .2s}
+.mcur b{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid rgba(255,255,255,.9);background:rgba(255,255,255,0);transition:width .35s var(--spring),height .35s var(--spring),margin .35s var(--spring),background .25s,border-color .25s,opacity .2s}
+.mcur.link b{width:60px;height:60px;margin:-30px 0 0 -30px;background:rgba(255,255,255,.22)}
+.mcur.link i{opacity:0}
+.mcur.grab b{width:74px;height:74px;margin:-37px 0 0 -37px;background:rgba(255,255,255,.14);border-style:dashed}
+.mcur.grab i{width:6px;height:6px;margin:-3px 0 0 -3px}
+.mcur.down b{width:26px;height:26px;margin:-13px 0 0 -13px;background:rgba(255,255,255,.3)}
+.mcur.zoom b{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(255,255,255,.18)}
+html.cc,html.cc *{cursor:none}
+html.cc input,html.cc textarea,html.cc select{cursor:text}
 section[id]{scroll-margin-top:84px}
 @media (prefers-reduced-motion:reduce){.nav .in{transition:opacity .2s}}
 @media (max-width:760px){.nav .in{height:48px;padding:0 6px 0 14px}main{padding-top:26px}}
@@ -1173,5 +1187,45 @@ document.querySelectorAll('.fcar').forEach(function(car){
   }
   window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
   nav.addEventListener('focusin',function(){nav.classList.remove('hide')});
+})();
+</script>
+<script>
+(function(){
+  if(!window.matchMedia||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var root=document.createElement('div');root.className='mcur';root.setAttribute('aria-hidden','true');
+  var dot=document.createElement('i'),ring=document.createElement('b');root.appendChild(ring);root.appendChild(dot);document.body.appendChild(root);
+  var mx=-100,my=-100,rx=-100,ry=-100,raf=0,shown=false;
+  var LINK='a,button,[role="button"],summary,label,.chip,.dots i,.pill,.mini,.gb';
+  var GRAB='.bstage,.ftrack,.o3-host,.fcar,.rail,.fseg';
+  var ZOOM='.zm';
+  function frame(){
+    raf=0;
+    rx+=(mx-rx)*(reduce?1:.2);ry+=(my-ry)*(reduce?1:.2);
+    dot.style.transform='translate3d('+mx+'px,'+my+'px,0)';
+    ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';
+    if(Math.abs(mx-rx)>.1||Math.abs(my-ry)>.1)raf=requestAnimationFrame(frame);
+  }
+  function kick(){if(!raf)raf=requestAnimationFrame(frame)}
+  function state(t){
+    var s='';
+    if(t&&t.closest){
+      if(t.closest('input,textarea,select')){document.documentElement.classList.remove('cc');root.classList.remove('on');return}
+      if(t.closest(LINK))s='link';else if(t.closest(ZOOM))s='zoom';else if(t.closest(GRAB))s='grab';
+    }
+    document.documentElement.classList.add('cc');root.classList.add('on');
+    root.classList.toggle('link',s==='link');root.classList.toggle('grab',s==='grab');root.classList.toggle('zoom',s==='zoom');
+  }
+  window.addEventListener('pointermove',function(e){
+    if(e.pointerType&&e.pointerType!=='mouse')return;
+    mx=e.clientX;my=e.clientY;
+    if(!shown){rx=mx;ry=my;shown=true}
+    state(e.target);kick();
+  },{passive:true});
+  document.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse')root.classList.add('down')});
+  window.addEventListener('pointerup',function(){root.classList.remove('down')});
+  document.addEventListener('mouseleave',function(){root.classList.remove('on')});
+  document.addEventListener('mouseenter',function(){if(shown)root.classList.add('on')});
+  window.addEventListener('blur',function(){root.classList.remove('on')});
 })();
 </script>

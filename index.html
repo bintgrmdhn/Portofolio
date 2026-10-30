@@ -594,7 +594,7 @@ button.chip.hide{opacity:0;pointer-events:none}
 .nav .brand:hover img{transform:scale(1.12)}
 /* navbar kaca melayang: sembunyi saat scroll turun, muncul lagi dari atas saat scroll naik */
 .nav.band{position:sticky;top:0;height:0;overflow:visible;background:transparent;border:0;-webkit-backdrop-filter:none;backdrop-filter:none;z-index:60;pointer-events:none}
-.nav .in{pointer-events:auto;position:relative;top:calc(env(safe-area-inset-top,0px) + 10px);width:min(1120px,calc(100% - 24px));max-width:none;height:52px;margin:0 auto;padding:0 8px 0 18px;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,255,255,.05));-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 32px -12px rgba(0,0,0,.65),0 1px 0 rgba(255,255,255,.3) inset;transition:transform .5s var(--spring),opacity .35s ease}
+.nav .in{pointer-events:auto;position:relative;top:calc(env(safe-area-inset-top,0px) + 10px);width:calc(100% - 24px);max-width:none;height:52px;margin:0 auto;padding:0 8px 0 18px;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,255,255,.05));-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 32px -12px rgba(0,0,0,.65),0 1px 0 rgba(255,255,255,.3) inset;transition:transform .5s var(--spring),opacity .35s ease}
 .nav .in::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,0) 55%)}
 .nav.hide .in{transform:translateY(calc(-100% - 24px));opacity:0;pointer-events:none}
 .nav ul{gap:clamp(2px,.8vw,8px)}

@@ -790,7 +790,7 @@ section[id]{scroll-margin-top:84px}
       <div class="about">
         <div class="about-text">
           <span class="eyebrow">Tentang</span>
-          <p class="reveal" id="reveal">Berawal dari visual, berkembang melalui teknologi. Saya menggabungkan kreativitas dan logika untuk menciptakan pengalaman digital yang tidak hanya menarik dilihat, tetapi juga bermakna dan berfungsi.</p>
+          <p class="reveal" id="reveal">Berawal dari ide, diwujudkan melalui visual. Saya menggabungkan estetika dan strategi untuk menciptakan karya desain yang tidak hanya memikat mata, tetapi juga menyampaikan pesan secara kuat dan bermakna.</p>
         </div>
         <figure class="portrait"><img src="assets/profil/me.jpg" alt="Foto Bintang Ramadhan" width="900" height="1200" decoding="async"></figure>
       </div>
@@ -944,7 +944,7 @@ section[id]{scroll-margin-top:84px}
   var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){sizeDust();if(reduce)drawDust(0)},150)});
 
   /* statement words */
-  var rv=$('#reveal'),words=rv.textContent.trim().split(/\s+/),keys={'visual,':1,'teknologi.':1,'bermakna':1,'berfungsi.':1};
+  var rv=$('#reveal'),words=rv.textContent.trim().split(/\s+/),keys={'ide,':1,'visual.':1,'kuat':1,'bermakna.':1};
   rv.innerHTML=words.map(function(w){return '<span'+(keys[w.toLowerCase()]?' class="k"':'')+'>'+w+'</span>'}).join(' ');
   var wspans=$$('span',rv);
 

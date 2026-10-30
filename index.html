@@ -505,6 +505,16 @@ h1,h2,h3{margin:0;letter-spacing:-.035em;text-wrap:balance}
 .exp>*{min-width:0}
 .card{background:var(--tile);border-radius:30px;padding:clamp(26px,4vw,44px);box-shadow:0 1px 0 #0000000a;transition:transform .5s var(--spring)}
 .card:hover{transform:translateY(-4px)}
+.edu-h{display:flex;align-items:center;gap:16px;margin-top:20px}
+.edu-h h3{margin-top:0;font-size:clamp(1.15rem,1.7vw,1.45rem);line-height:1.2}
+.edu-h p{margin-top:4px}
+.edu-logo{width:64px;height:64px;flex:none;object-fit:contain;border-radius:14px;background:#ffffff0d;padding:6px;filter:drop-shadow(0 4px 12px #0007)}
+.card .edu-m{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:0}
+.edu-m li{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid #ffffff14}
+.edu-m span{color:var(--mut)}.edu-m b{color:#f5f5f7;font-weight:600}
+.edu-sk{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:20px}
+.edu-sk svg{width:20px;height:20px;fill:none;stroke:#bf5af2;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;margin-right:2px}
+.edu-sk span{font-size:.88rem;padding:6px 14px;border-radius:980px;background:#2a2a2d;color:#e8e8ed;font-weight:500}
 .card .when{font-size:clamp(3rem,7vw,5rem);font-weight:800;letter-spacing:-.05em;line-height:1}
 .card h3{font-size:1.5rem;margin-top:18px;font-weight:700}
 .card p{color:var(--mut);margin:10px 0 0;line-height:1.5}
@@ -944,7 +954,7 @@ section[id]{scroll-margin-top:84px}
       <h2>Perjalanan saya.</h2>
       <div class="exp">
         <div class="card rvx"><div class="when gt">2 tahun</div><h3>Graphic Designer</h3><ul><li>Memimpin perancangan grafis pakaian dan koleksi merchandise (kaus, crewneck, kaus lengan panjang) untuk 3 lini merek (HAENHA, HYPEY, H10), menyelaraskan visual streetwear dengan demografi target audiens muda.</li><li>Merancang banner promosi dua mingguan untuk marketplace, kampanye acara bulanan, serta dekorasi toko e-commerce guna mengoptimalkan keterlibatan pelanggan (engagement) dan konsistensi visual.</li><li>Memproduksi mockup produk yang realistis dan visualisasi 3D modern menggunakan Blender serta Adobe Creative Suite, sekaligus berkolaborasi langsung dengan klien untuk menerjemahkan arahan gaya (style brief) kustom menjadi desain yang siap diproduksi.</li></ul></div>
-        <div class="card rvx"><div class="when gt">Sekarang</div><h3>S1 Teknik Informatika</h3><p>Nama kampus kamu. Mahasiswa aktif.</p><ul><li>Belajar membangun perangkat lunak dari dasar.</li><li>Menggabungkan sudut pandang desain ke setiap proyek.</li></ul></div>
+        <div class="card edu-card rvx"><div class="when gt">Sekarang</div><div class="edu-h"><img class="edu-logo" src="assets/profil/unindra.png" alt="Logo Universitas Indraprasta PGRI" width="64" height="64" loading="lazy"><div><h3>Universitas Indraprasta PGRI (UNINDRA)</h3><p>Gelar Sarjana, Informatics</p></div></div><ul class="edu-m"><li><span>Periode</span><b>Agt 2024 – Jul 2028</b></li><li><span>IPK</span><b>3.44 / 4.00</b></li></ul><div class="edu-sk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3l3 6 3-6M12 21 9 9m3 12 3-12"/></svg><span>Figma</span><span>HTML5</span><span>+4 keahlian</span></div></div>
       </div>
     </div>
   </section>

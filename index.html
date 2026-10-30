@@ -452,6 +452,38 @@ h1,h2,h3{margin:0;letter-spacing:-.035em;text-wrap:balance}
 .swc:hover{transform:translateY(-3px);background:#343438}
 .swc svg{width:30px;height:30px;flex:none;filter:drop-shadow(0 2px 6px #0006)}
 .swc b{font-weight:500}
+.hs-tile{grid-column:1/-1}
+.hs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.hs-c{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:260px;padding:20px;border-radius:24px;background:linear-gradient(160deg,#242428,#1b1b1e);border:1px solid #ffffff10;overflow:hidden;transition:transform .5s var(--spring),border-color .3s}
+.hs-c:hover{transform:translateY(-4px);border-color:#ffffff28}
+.hs-n{font-size:clamp(2rem,3.6vw,3rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;background:linear-gradient(135deg,#fff,#b9b9c2);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+.hs-l{font-size:.85rem;color:var(--mut);margin-top:6px;font-weight:500;letter-spacing:.04em;position:relative}
+.hs-venn{position:absolute;inset:14px 14px auto;height:120px}
+.hs-venn b{position:absolute;width:86px;height:86px;border-radius:50%;display:grid;place-items:center;font-size:.62rem;letter-spacing:.06em;font-weight:700;color:#fff;mix-blend-mode:screen;opacity:0;transform:scale(.4);transition:opacity .7s,transform .9s var(--spring)}
+.hs-venn b:nth-child(1){left:6%;top:6px;background:radial-gradient(circle,#ff9f0a,#ff375f99)}
+.hs-venn b:nth-child(2){left:30%;top:30px;background:radial-gradient(circle,#bf5af2,#5e5ce699);transition-delay:.15s}
+.hs-venn b:nth-child(3){left:54%;top:6px;background:radial-gradient(circle,#0a84ff,#30d15899);transition-delay:.3s}
+.hs-bars{position:absolute;left:20px;right:20px;top:18px;height:104px;display:flex;align-items:flex-end;gap:5px}
+.hs-bars i{flex:1;height:var(--h);border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,#ff9f0a,#ff375f);transform:scaleY(0);transform-origin:bottom;transition:transform .8s var(--spring) var(--d)}
+.hs-bars i:nth-child(even){background:linear-gradient(180deg,#bf5af2,#5e5ce6)}
+.hs-ring{position:absolute;right:14px;top:10px;width:132px;height:132px;transform:rotate(-90deg)}
+.hs-ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.hs-ring .t{stroke:#ffffff10}
+.hs-ring .v{stroke:url(#hsrg);stroke-dasharray:251;stroke-dashoffset:251;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1) .2s}
+.hs-ring .v2{stroke-dasharray:163;stroke-dashoffset:163;stroke:#0a84ff;transition-delay:.45s}
+.hs-line{position:absolute;left:0;right:0;top:16px;width:100%;height:124px;overflow:visible}
+.hs-line .a{fill:url(#hsag);opacity:0;transition:opacity 1s .8s}
+.hs-line .l{fill:none;stroke:#30d158;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1) .2s;filter:drop-shadow(0 0 6px #30d158aa)}
+.hs-line .dot{fill:#fff;opacity:0;transition:opacity .4s 1.8s}
+.hs.hson .hs-venn b{opacity:.92;transform:scale(1)}
+.hs.hson .hs-bars i{transform:scaleY(1)}
+.hs.hson .hs-ring .v{stroke-dashoffset:50}
+.hs.hson .hs-ring .v2{stroke-dashoffset:34}
+.hs.hson .hs-line .l{stroke-dashoffset:0}
+.hs.hson .hs-line .a,.hs.hson .hs-line .dot{opacity:1}
+@media (max-width:900px){.hs{grid-template-columns:1fr 1fr}.hs-tile{grid-column:span 2}}
+@media (max-width:560px){.hs{grid-template-columns:1fr}.hs-tile{grid-column:auto}.hs-c{min-height:250px}}
+@media (prefers-reduced-motion:reduce){.hs *{transition:none!important}}
 .wide{grid-column:span 2}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
 .tags span{font-size:.9rem;padding:7px 14px;border-radius:980px;background:#2a2a2d;color:#e8e8ed;font-weight:500}
@@ -894,7 +926,13 @@ section[id]{scroll-margin-top:84px}
         <div class="tile wide rvx"><h3>Grafis</h3><div class="swl"><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gPs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#31a8ff"/><stop offset="1" stop-color="#001e36"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gPs)"/><text x="20" y="26" text-anchor="middle" font-size="16" font-weight="800" fill="#fff" font-family="Inter,Arial,sans-serif">Ps</text></svg><b>Photoshop</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gAi" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a00"/><stop offset="1" stop-color="#330000"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gAi)"/><text x="20" y="26" text-anchor="middle" font-size="16" font-weight="800" fill="#fff" font-family="Inter,Arial,sans-serif">Ai</text></svg><b>Illustrator</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gCdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fbf4a"/><stop offset="1" stop-color="#0b4d2b"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gCdr)"/><text x="20" y="26" text-anchor="middle" font-size="13" font-weight="800" fill="#fff" font-family="Inter,Arial,sans-serif">Cdr</text></svg><b>CorelDRAW</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gFg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b2b2f"/><stop offset="1" stop-color="#0d0d0f"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gFg)"/><circle cx="20" cy="12" r="5" fill="#f24e1e"/><circle cx="20" cy="28" r="5" fill="#0acf83"/><circle cx="12" cy="20" r="5" fill="#a259ff"/><circle cx="28" cy="20" r="5" fill="#1abcfe"/></svg><b>Figma</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gCv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00c4cc"/><stop offset="1" stop-color="#7d2ae8"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gCv)"/><circle cx="20" cy="20" r="9" fill="none" stroke="#fff" stroke-width="3.5" stroke-dasharray="40 20" stroke-linecap="round"/></svg><b>Canva</b></span></div></div>
         <div class="tile rvx"><h3>Ilustrasi</h3><div class="swl"><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gAi2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a00"/><stop offset="1" stop-color="#330000"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gAi2)"/><text x="20" y="26" text-anchor="middle" font-size="16" font-weight="800" fill="#fff" font-family="Inter,Arial,sans-serif">Ai</text></svg><b>Illustrator</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gPs2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#31a8ff"/><stop offset="1" stop-color="#001e36"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gPs2)"/><text x="20" y="26" text-anchor="middle" font-size="16" font-weight="800" fill="#fff" font-family="Inter,Arial,sans-serif">Ps</text></svg><b>Photoshop</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gPc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a3f"/><stop offset="1" stop-color="#111113"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gPc)"/><path d="M12 29c2-8 5-14 15-16-1 8-6 13-15 16Z" fill="#fff"/></svg><b>Procreate</b></span></div></div>
         <div class="tile rvx"><h3>3D Model</h3><div class="swl"><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gSk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0343c"/><stop offset="1" stop-color="#7a0f16"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gSk)"/><path d="M20 8 31 31H9Z" fill="#fff" opacity=".95"/><path d="M20 8 31 31 20 26Z" fill="#c8161f" opacity=".55"/></svg><b>SketchUp</b></span><span class="swc"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="gBl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a1f"/><stop offset="1" stop-color="#2b4a8b"/></linearGradient></defs><rect width="40" height="40" rx="10" fill="url(#gBl)"/><circle cx="21" cy="22" r="9" fill="none" stroke="#fff" stroke-width="3.5"/><circle cx="21" cy="22" r="3" fill="#fff"/><path d="M8 19h9" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg><b>Blender</b></span></div></div>
-        <div class="tile wide rvx"><span class="cap">Hasil</span><h3>Dua keahlian, satu hasil.</h3><div class="eqw"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="tile hs-tile rvx"><span class="cap">Hasil</span><h3>Angka di balik karya.</h3>
+          <div class="hs" id="hs">
+            <div class="hs-c hs-brand"><div class="hs-venn"><b>HAENHA</b><b>HYPEY</b><b>H10</b></div><div class="hs-n"><span data-to="3">0</span></div><div class="hs-l">Brands</div></div>
+            <div class="hs-c"><div class="hs-bars"><i style="--h:30%;--d:0ms"></i><i style="--h:44%;--d:60ms"></i><i style="--h:38%;--d:120ms"></i><i style="--h:58%;--d:180ms"></i><i style="--h:50%;--d:240ms"></i><i style="--h:72%;--d:300ms"></i><i style="--h:62%;--d:360ms"></i><i style="--h:80%;--d:420ms"></i><i style="--h:70%;--d:480ms"></i><i style="--h:92%;--d:540ms"></i><i style="--h:84%;--d:600ms"></i><i style="--h:100%;--d:660ms"></i></div><div class="hs-n"><span data-to="1200">0</span>+</div><div class="hs-l">Desain</div></div>
+            <div class="hs-c"><svg class="hs-ring" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="hsrg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bf5af2"/><stop offset="1" stop-color="#0a84ff"/></linearGradient></defs><circle cx="50" cy="50" r="40" class="t"/><circle cx="50" cy="50" r="40" class="v"/><circle cx="50" cy="50" r="26" class="t"/><circle cx="50" cy="50" r="26" class="v v2"/></svg><div class="hs-n"><span data-to="250">0</span>+</div><div class="hs-l">Mockup</div></div>
+            <div class="hs-c"><svg class="hs-line" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="hsag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#30d158" stop-opacity=".5"/><stop offset="1" stop-color="#30d158" stop-opacity="0"/></linearGradient></defs><path class="a" d="M0 70 C25 66 35 60 55 56 S85 48 105 38 S145 30 160 18 S190 8 200 4 V80 H0Z"/><path class="l" d="M0 70 C25 66 35 60 55 56 S85 48 105 38 S145 30 160 18 S190 8 200 4"/><circle class="dot" cx="196" cy="5" r="3.5"/></svg><div class="hs-n"><span data-to="15000">0</span>+</div><div class="hs-l">Penjualan</div></div>
+          </div></div>
       </div>
     </div>
   </section>
@@ -1326,4 +1364,9 @@ document.querySelectorAll('.fcar').forEach(function(car){
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;if(vis)kick()})},{threshold:.05}).observe(tile);else{vis=true;kick()}
   document.addEventListener('visibilitychange',function(){if(!document.hidden)kick()});
 })();
+</script>
+<script>
+(function(){var h=document.getElementById('hs');if(!h)return;
+function run(){h.classList.add('hson');h.querySelectorAll('[data-to]').forEach(function(el){var to=+el.dataset.to,t0=performance.now(),d=1800;(function f(t){var k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e).toLocaleString('id-ID');if(k<1)requestAnimationFrame(f)})(t0)})}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();run()}},{threshold:.3});io.observe(h)}else run()})();
 </script>

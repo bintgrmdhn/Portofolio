@@ -274,6 +274,14 @@ h1,h2,h3{margin:0;letter-spacing:-.035em;text-wrap:balance}
 .gc .k{position:absolute;padding:8px 15px;border-radius:14px;background:rgba(255,255,255,.9);color:#10101a;font-weight:700;font-size:.9rem;box-shadow:0 14px 28px -10px #0008;animation:float 5.5s ease-in-out infinite;z-index:0}
 .gc .k1{left:12%;top:46%}.gc .k2{right:10%;top:56%;animation-delay:-1.8s}.gc .k3{left:30%;top:68%;animation-delay:-3.4s}
 .gc .top{padding:28px 26px;position:relative}
+.ctillo{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;filter:drop-shadow(0 16px 30px #0004)}
+.ct-book,.ct-laptop,.ct-cal,.ct-av{animation:ctfloat 6s ease-in-out infinite}
+.ct-laptop{animation-delay:-1.2s}.ct-cal{animation-delay:-2.6s}.ct-av{animation-delay:-4s}
+@keyframes ctfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.ct-dot{animation:twk 3.4s ease-in-out infinite}
+.ct-dot:nth-child(2){animation-delay:-1s}.ct-dot:nth-child(3){animation-delay:-2s}
+@keyframes twk{0%,100%{opacity:.3}50%{opacity:.9}}
+@media (prefers-reduced-motion:reduce){.ctillo *{animation:none!important}}
 .gc .top em{font-style:normal;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;opacity:.82}
 .gc .top h3{font-size:1.85rem;font-weight:700;line-height:1.05;margin-top:8px}
 
@@ -906,7 +914,38 @@ section[id]{scroll-margin-top:84px}
     </div>
     <div class="rail" id="rail">
       <article class="gc g3d" id="g3d" aria-label="Desain 3D: kantor, pratinjau 360 derajat"><div class="o3-host" id="o3host"></div><div class="o3-load">Memuat ruangan&hellip;</div><div class="o3-top"><em>3D &middot; Interior</em><h3>Desain 3D</h3><p>Kantor HAENHA: ruang kerja, lounge, dan pantry.</p></div><div class="o3-modes o3-ui"><button type="button" data-m="3d" aria-pressed="true">360&deg;</button><button type="button" data-m="rd" aria-pressed="false">Render</button></div><div class="o3-hint">Geser untuk melihat sekeliling &middot; cubit untuk zoom</div><div class="o3-chips o3-ui"><button type="button" data-v="masuk" aria-pressed="true">Masuk</button><button type="button" data-v="kerja" aria-pressed="false">Ruang kerja</button><button type="button" data-v="lounge" aria-pressed="false">Lounge</button><button type="button" data-v="pantry" aria-pressed="false">Pantry</button><button type="button" data-v="denah" aria-pressed="false">Denah</button></div><div class="o3-gal"><div class="fcar"><div class="ftrack"><div class="fs"><img src="assets/3d/render/rd3.jpg" alt="Perspektif ruang kerja" width="1280" height="623" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd18.jpg" alt="Perspektif meja dan kursi" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd19.jpg" alt="Dinding kayu di belakang meja kerja" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd2.jpg" alt="Dinding barat dengan panel slat" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd1.jpg" alt="Detail meja dan kursi" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd4.jpg" alt="Perspektif dari lounge ke ruang kerja" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd17.jpg" alt="Sofa, meja lipat, dan TV" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd16.jpg" alt="Lounge dan pantry" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd15.jpg" alt="Koridor lounge dan pantry" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd10.jpg" alt="Sudut ruangan dengan stopkontak" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd11.jpg" alt="Pintu kaca dan saklar" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd9.jpg" alt="Ruangan kosong dari atas" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd8.jpg" alt="Denah seluruh kantor" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd7.jpg" alt="Denah ruang kerja" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd5.jpg" alt="Denah area pintu masuk" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd6.jpg" alt="Denah lounge dan pantry" width="1280" height="623" loading="lazy" draggable="false"></div><div class="fs"><img src="assets/3d/render/rd12.jpg" alt="Denah area lounge" width="1280" height="623" loading="lazy" draggable="false"></div></div></div><div class="o3-gp"><div class="fpg"><div class="ftr"><i></i></div><b>1/17</b></div></div></div></article>
-      <article class="gc" style="--c1:#5e5ce6;--c2:#0b6b6b;--c3:#bf5af2"><i class="s s1"></i><i class="s s2"></i><i class="s s3"></i><span class="k k1">3D Sandbox</span><span class="k k2">Glass UI</span><span class="k k3">LMS</span><div class="top"><em>Web &middot; 3D</em><h3>Campus Town</h3></div><div class="bot">Website SIKA dan LMS kampus yang menyatu dengan interface 3D sandbox, konsep Cozy Room bergaya bubble glass ala iOS.</div></article>
+      <article class="gc" style="--c1:#5e5ce6;--c2:#0b6b6b;--c3:#bf5af2"><i class="s s1"></i><i class="s s2"></i><i class="s s3"></i><svg class="ctillo" viewBox="0 0 300 300" aria-hidden="true">
+<defs>
+  <linearGradient id="ctfloor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset="1" stop-color="#ffffff" stop-opacity=".04"/></linearGradient>
+  <linearGradient id="ctglass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".38"/><stop offset="1" stop-color="#ffffff" stop-opacity=".1"/></linearGradient>
+  <linearGradient id="ctglow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd60a"/><stop offset="1" stop-color="#ff9f0a"/></linearGradient>
+  <linearGradient id="ctscreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5ac8fa"/><stop offset="1" stop-color="#bf5af2"/></linearGradient>
+</defs>
+<ellipse cx="150" cy="248" rx="118" ry="26" fill="#000" opacity=".16"/>
+<path d="M30 190 150 130 270 190 150 250Z" fill="url(#ctfloor)" stroke="#ffffff33" stroke-width="1.5"/>
+<g class="ct-book">
+  <rect x="46" y="118" width="58" height="56" rx="12" fill="url(#ctglass)" stroke="#ffffff55" stroke-width="1.5"/>
+  <path d="M58 136h34M58 146h34M58 156h24" stroke="#ffffffb0" stroke-width="3.2" stroke-linecap="round"/>
+</g>
+<g class="ct-cal">
+  <circle cx="238" cy="150" r="30" fill="url(#ctglass)" stroke="#ffffff55" stroke-width="1.5"/>
+  <circle cx="238" cy="150" r="10" fill="url(#ctglow)"/>
+  <circle cx="238" cy="150" r="17" fill="none" stroke="#ffffffa0" stroke-width="2.4" stroke-dasharray="3 6"/>
+</g>
+<g class="ct-laptop">
+  <rect x="112" y="92" width="76" height="52" rx="13" fill="url(#ctglass)" stroke="#ffffff66" stroke-width="1.6"/>
+  <rect x="124" y="103" width="52" height="30" rx="7" fill="url(#ctscreen)" opacity=".92"/>
+  <path d="M106 150q44 18 88 0" fill="none" stroke="#ffffff55" stroke-width="2"/>
+</g>
+<g class="ct-av">
+  <circle cx="150" cy="196" r="15" fill="#fff" opacity=".92"/>
+  <circle cx="150" cy="190" r="6" fill="#5e5ce6"/>
+  <path d="M138 204q12-10 24 0" fill="none" stroke="#5e5ce6" stroke-width="4" stroke-linecap="round"/>
+</g>
+<circle class="ct-dot" cx="70" cy="96" r="4" fill="#fff" opacity=".7"/>
+<circle class="ct-dot" cx="226" cy="84" r="3" fill="#fff" opacity=".6"/>
+<circle class="ct-dot" cx="252" cy="110" r="5" fill="#fff" opacity=".5"/>
+</svg><span class="k k1">3D Sandbox</span><span class="k k2">Glass UI</span><span class="k k3">LMS</span><div class="top"><em>Web &middot; 3D</em><h3>Campus Town</h3></div><div class="bot">Website SIKA dan LMS kampus yang menyatu dengan interface 3D sandbox, konsep Cozy Room bergaya bubble glass ala iOS.</div></article>
       <article class="gc" style="--c1:#0a84ff;--c2:#0b6b4f;--c3:#5ac8fa"><i class="s s1"></i><i class="s s2"></i><i class="s s3"></i><span class="k k1">Map</span><span class="k k2">Studio</span><span class="k k3">Dalam proses</span><div class="top"><em>Roblox Studio</em><h3>Map Roblox</h3></div><div class="bot">Proyek membangun map di Roblox Studio, sedang dalam pengerjaan.</div></article>
       <article class="gc" style="--c1:#bf5af2;--c2:#c2183c;--c3:#ffd60a"><i class="s s1"></i><i class="s s2"></i><i class="s s3"></i><span class="k k1">Aa</span><span class="k k2">Logo</span><span class="k k3">Palet</span><div class="top"><em>Branding</em><h3>Paket Identitas Visual</h3></div><div class="bot">Logo, palet warna, dan aset media sosial dari pekerjaan sebagai Graphic Designer.</div></article>
     </div>
